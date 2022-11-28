@@ -32,7 +32,7 @@ Run this command in the terminal to update your .env automatically:
 ./vendor/bin/scaleway-object-storage-init {your-app}
 ```
 
-If it fails for some reason, update your .env file manually. Learn how to [access credentials](https://help.fortrabbit.com/object-storage#toc-obtaining-credentials) on fortrabbit.
+If it fails for some reason, update your .env file manually.
 
 ```
 SCALEWAY_STORAGE_BUCKET="(YOUR_BUCKET)"

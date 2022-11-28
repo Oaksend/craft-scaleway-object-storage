@@ -1,0 +1,56 @@
+{% import "_includes/forms" as forms %}
+
+{{ forms.autosuggestField({
+    label: "Region"|t('scaleway-object-storage'),
+    instructions: 'Region to use'|t('scaleway-object-storage'),
+    id: 'region',
+    name: 'region',
+    suggestEnvVars: true,
+    value: scaleway.region|default('$SCALEWAY_STORAGE_REGION'),
+    errors: scaleway.getErrors('region'),
+    placeholder: '$SCALEWAY_STORAGE_REGION'|t('scaleway-object-storage'),
+}) }}
+
+{{ forms.autosuggestField({
+    label: "Access Key ID"|t('scaleway-object-storage'),
+    id: 'keyId',
+    name: 'keyId',
+    suggestEnvVars: true,
+    value: scaleway.keyId|default('$SCALEWAY_STORAGE_KEY'),
+    errors: scaleway.getErrors('keyId'),
+}) }}
+
+{{ forms.autosuggestField({
+    label: "Secret Access Key"|t('scaleway-object-storage'),
+    id: 'secret',
+    name: 'secret',
+    suggestEnvVars: true,
+    value: scaleway.secret|default('$SCALEWAY_STORAGE_SECRET'),
+    errors: scaleway.getErrors('secret'),
+}) }}
+
+{{ forms.autosuggestField({
+    label: "Bucket"|t('scaleway-object-storage'),
+    name: 'bucket',
+    suggestEnvVars: true,
+    value: scaleway.bucket|default('$SCALEWAY_STORAGE_BUCKET'),
+    errors: scaleway.getErrors('bucket'),
+}) }}
+
+{{ forms.autosuggestField({
+    label: "Subfolder"|t('scaleway-object-storage'),
+    instructions: "If you want to use a bucket’s subfolder as a Volume, specify the path to use here."|t('scaleway-object-storage'),
+    name: 'subfolder',
+    suggestEnvVars: true,
+    value: scaleway.subfolder,
+    errors: scaleway.getErrors('subfolder'),
+    placeholder: "path/to/subfolder"|t('scaleway-object-storage')
+}) }}
+
+{{ forms.autosuggestField({
+    label: "Expires"|t('scaleway-object-storage'),
+    instructions: "Cache expiration period."|t('scaleway-object-storage'),
+    name: 'expires',
+    value: scaleway.expires,
+    errors: scaleway.getErrors('expires'),
+}) }}
